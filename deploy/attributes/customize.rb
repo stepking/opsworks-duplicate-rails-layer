@@ -9,7 +9,7 @@ default_rails_layer = "rails-app"
 for layer in custom_rails_layers
   if node[:opsworks][:instance][:layers].include?(layer)
     if not node[:opsworks][:instance][:layers].include?(default_rails_layer)
-      normal[:opsworks][:instance][:layers] = default_rails_layer
+      normal[:opsworks][:instance][:layers].push(default_rails_layer)
     end
   end
 end
